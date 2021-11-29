@@ -37270,6 +37270,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./filterAnimal */ "./resources/js/filterAnimal.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37314,6 +37316,48 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/filterAnimal.js":
+/*!**************************************!*\
+  !*** ./resources/js/filterAnimal.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var filter = document.getElementById('filter');
+  var content_img = document.getElementById('content-img'); /// No existe este element
+
+  function filterAnimals() {
+    var config = {
+      headers: {
+        "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
+      }
+    };
+    var filterValue = filter.value;
+
+    if (filterValue.length > 3) {
+      var response = axios.get('/animals/' + filterValue, config);
+      response.then(function (res) {
+        console.log(res.data);
+
+        if (res.data.length === 0) {
+          content_img.innerHTML = '<p>Not found</p>';
+        } else {
+          content_img.innerHTML = res.data;
+        }
+      })["catch"](function (e) {
+        return e;
+      });
+    }
+
+    ;
+  }
+
+  filter.addEventListener('input', filterAnimals);
+});
 
 /***/ }),
 

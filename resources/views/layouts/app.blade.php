@@ -10,8 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
 
     <!-- Fonts -->
@@ -117,7 +115,7 @@
 
                                     <a class="custom-btn custom-btn-primary" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                            document.getElementById('logout-form').submit();">
+                                                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -201,7 +199,9 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/filterAnimals.js') }}" defer></script>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 
 </html>

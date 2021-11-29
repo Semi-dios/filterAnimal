@@ -82,21 +82,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="content-imgs" id="content-imgs">
-                            @if (!empty($animals))
-                                @foreach ($animals as $animal)
-                                    <picture class="content-img" id="content-img">
-                                        <img src="{{ asset('images/' . $animal) }}" alt="" />
-                                    </picture>
-                                @endforeach
-                            @else
-                                <picture class="content-img" id="content-img">
-                                    <p>Result not found.</p>
-                                </picture>
-
-                            @endif
-
-
-
+                            <picture class="content-img" id="content-img">
+                                <p>Result not found.</p>
+                            </picture>
                         </div>
 
 

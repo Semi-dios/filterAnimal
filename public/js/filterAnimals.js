@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+/* window.addEventListener('DOMContentLoaded', function(){
 
 const filter = document.getElementById('filter');
 const content_img = document.getElementById('content-img'); /// No existe este element
@@ -26,3 +26,4 @@ function filterAnimals(){
 }
 filter.addEventListener('input',filterAnimals);
 });
+ */
